@@ -1,7 +1,7 @@
 # AI Weather
 
 <div align="center">
-  <img src="https://github.com/coaxsoft/python_ai/blob/master/logo.png">
+  <img src="https://github.com/coaxsoft/ai_weather/blob/master/logo.png">
 </div>
 
 AI Weather is the micro-library developed for precise weather
