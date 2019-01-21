@@ -1,0 +1,24 @@
+version: '3'
+services:
+  model:
+    build: .
+    env_file:
+      - .env/vars
+    volumes:
+      - .:/app
+  mongo:
+    image: mongo
+    restart: always
+    env_file:
+      - .env/vars
+    ports:
+      - 27017:27017
+    volumes:
+      - ./.data/mongo:/data/db
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    env_file:
+      - .env/vars
