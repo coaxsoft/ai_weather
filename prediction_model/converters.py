@@ -202,8 +202,7 @@ class MongoBaseConverter(AbstractConverter, KeyMapMixin):
                     except ValueError:
                         raise ValueError(f"The vector of length {len(X[key])} cannot be appended "
                                          f"to vector of shape {self.predict['data'][key].shape}.\n"
-                                         f"Please, Honorable Sir, check is the data homogeneous "
-                                         f"in your data set?")
+                                         f"Please check that the data homogeneous is in your data set")
 
         self.predict['labels'] = list(self.predict['labels'])
 

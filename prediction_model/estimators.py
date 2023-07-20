@@ -42,9 +42,8 @@ def produce(reader: AbstractReader, data: dict) -> dict:
     """
     weights = reader.read_weights()
     if weights is None:
-        raise TypeError(f"There are no weights for {reader.supplement()} in the database.\nPlease, "
-                        f"Honorable Sir, would you be so kind to check whether you reduced any "
-                        f"data about this city or forecast distance?")
+        raise TypeError(f"There are no weights for {reader.supplement()} in the database.\nPlease, check whether "
+                        f"you reduced any data about this city or forecast distance?")
     estimator = StandardEstimator(data, None)
     estimator.weights = weights
     return estimator.produce(data)
@@ -143,13 +142,12 @@ class StandardEstimator(AbstractEstimator):
 
             if X.shape[1] == 0:
                 raise ValueError(f"Matrix containing predictions for {k}:{self.data['labels']} "
-                                 f"is empty {X}.\nPlease, Honorable Sir, check perhaps something "
-                                 f"is missed in your data!?")
+                                 f"is empty {X}.\nPlease check, something is missed in your data.")
             if X.shape[1] != len(self.data['labels']):
                 raise IndexError(f"Matrix containing predictions for {k} doesn't contains enough "
                                  f"values and its size {X.shape[1]} != {len(self.data['labels'])}."
-                                 f"\nPlease, Honorable Sir, check is the data homogeneous for "
-                                 f"all slots {self.get_slots()} in your set?")
+                                 f"\nPlease check that the data homogeneous for all slots {self.get_slots()} "
+                                 f"is in your set")
 
             errors = np.zeros((X.shape[0], 1))
 
@@ -177,8 +175,8 @@ class StandardEstimator(AbstractEstimator):
             if v.shape[1] != len(res['labels']):
                 raise IndexError(f"Matrix containing predictions for {k} doesn't contains enough "
                                  f"values and its size {v.shape[1]} != {len(res['labels'])}.\n"
-                                 f"Please, Honorable Sir, check is the data "
-                                 f"homogeneous for all slots {res['slots']} in your set?")
+                                 f"Please check that the data homogeneous for all slots {res['slots']} "
+                                 f"is in your set.")
             v = none_to_zero(v, should_copy=True)
             try:
                 res['data'][k] = self.weights[k].T.dot(v)
