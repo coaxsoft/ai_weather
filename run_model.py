@@ -262,9 +262,9 @@ if __name__ == '__main__':
     }
 
     if not args.city:
-        print('City name is empty. Please, Honorable Sir, provide it or pass to command line argument --city')
+        print('City name is empty. Please provide it or pass to command line argument --city')
     elif not args.country:
-        print('Country name is empty. Please, Honorable Sir, provide it or pass to command line argument --country')
+        print('Country name is empty. Please provide it or pass to command line argument --country')
     else:
         if args.script.upper() == 'REDUCE':
             reduce(args.city, args.country, args.max, args.limit, key_map_object)

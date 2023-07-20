@@ -1,16 +1,17 @@
 version: '3'
+
 services:
   model:
     build: .
     env_file:
-      - .env/vars
+      - .env
     volumes:
       - .:/app
   mongo:
     image: mongo
     restart: always
     env_file:
-      - .env/vars
+      - .env
     ports:
       - 27017:27017
     volumes:
@@ -21,4 +22,4 @@ services:
     ports:
       - 8081:8081
     env_file:
-      - .env/vars
+      - .env
